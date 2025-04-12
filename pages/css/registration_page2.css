@@ -3,18 +3,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  .welcome-back {
-    font-family: "Inter", sans-serif;
-    font-weight: 650;
-    font-size: 45px;
-    background: linear-gradient(to right, #0412A1 31%, #1A80D9 63%, #FFCF7F 70%, #FFC565 100%);
-    background-size: 600px 100%; 
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-  }
+
   .logo {
     display: block;    
     margin: 40px auto 0 auto;
@@ -28,12 +17,24 @@
     top: 60px;  
     left: 60px; 
   }
+
+  .Registering {
+    font-family: "Inter", sans-serif;
+    font-weight: 650;
+    font-size: 45px;
+    background: linear-gradient(to right, #0412A1 31%, #1A80D9 63%, #FFCF7F 70%, #FFC565 100%);
+    background-size: 600px 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
   .content {
     padding: 60px; 
-    
   }
-  .box-login {
-    display: block;    
+  .box-register {
+  display: block;    
   margin: 60px auto 0 auto;
   margin-bottom: 40px;
   width: 90%; 
@@ -44,76 +45,74 @@
   background-color: white;
   }
 
-  .Email_input {
+  .Skills{
     display: flex;
     flex-direction: column; 
     gap: 8px; 
     margin-top: 60px;
   }
-  
-  .Email_input label {
+  .Skills label {
     font-weight: bold; 
     font-size: 16px;    
     font-family: "Inter", sans-serif;
     font-weight: 600;
   }
-  
-  .Email_input input {
+ 
+  .Skills input {
     padding: 10px;
     margin-top: 4px;
     border: 1px solid #9a9a9a;
     border-radius: 8px;
     font-size: 16px;
   }
-  .Password_input{
+  .Password_first_input{
     display: flex;
     flex-direction: column; 
     gap: 8px; 
     margin-top: 40px;
   }
-  .Password_input label{
+  .Password_first_input label{
     font-weight: bold; 
     font-size: 16px;    
     font-family: "Inter", sans-serif;
     font-weight: 600;
   }
-  .Password_input input{
+  .Password_first_input input{
     padding: 10px;
     margin-top: 4px;
     border: 1px solid #9a9a9a;
     border-radius: 8px;
     font-size: 16px;
   }
-  .remember_check {
-    margin-top: 25px;
+  .Password_confirm_input{
     display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
+    flex-direction: column; 
+    gap: 8px; 
+    margin-top: 40px;
   }
-  .remember_check input[type="checkbox"] {
-    transform: scale(1.5); 
-    accent-color: #1A80D9; 
-  }
-  .remember_check label{
+  .Password_confirm_input label{
     font-weight: bold; 
-    font-size: 13px;    
+    font-size: 16px;    
     font-family: "Inter", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
   }
-  .forget_pass a{
-    font-family: "Inter", sans-serif;
-    margin-left: 235px;
-    color: black;
+  .Password_confirm_input input{
+    padding: 10px;
+    margin-top: 4px;
+    border: 1px solid #9a9a9a;
+    border-radius: 8px;
+    font-size: 16px;
   }
-  .button_login{
+  
+  .button_next{
     display: flex;
-    justify-content: center;
+    justify-content:end;
     margin-top: 20px;
   }
-  .button_login button {
+
+  .button_next button {
     margin-top: 30px;
-    width: 300px; 
+    width: 150px; 
     height: 50px;
     font-size: 18px; 
     background-color: #0412A1;
@@ -122,21 +121,4 @@
     border-radius: 8px; 
     cursor: pointer; 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .sign_up{
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    gap: 10px;
-    font-size: 14px;
-  }
-  .sign_up p{
-    font-family: "Inter", sans-serif;
-    
-  }
-  .sign_up a{
-    font-family: "Inter", sans-serif;
-    color: #0412A1;
-
   }
