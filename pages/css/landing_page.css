@@ -1,0 +1,218 @@
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.217);
+    margin-top: 45px;
+    gap: 1rem;
+    
+  }
+.logo img{
+        width: 150px; 
+        height: auto; 
+}
+.nav-links {
+  list-style: none;     
+  display: flex;         
+  gap: 55px;             
+  align-items: center;  
+}
+.nav-links li a {
+    text-decoration: none; 
+    color: black;          
+    font-weight: 600;      
+    font-size: 18px;      
+    font-family: "Inter", sans-serif; 
+  }
+  .nav-button{
+    width: 113px; 
+    height: 50px;
+    font-size: 18px;
+    font-family:  "Inter", sans-serif;
+    font-weight: 600; 
+    background-color: #0412A1;
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+  }
+
+  section {
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 100px;
+    gap: 10px;
+  }
+  
+  .hero, .discover, .resources {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .hero-text h1 {
+    font-size: 48px;
+    font-family: "Inter", sans-serif;
+    margin-left: 50px;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+  .hero-text img {
+    display: inline-block;
+    margin-right: 10px;
+    width: 100px; 
+    height: auto;
+  }
+
+  .discover-text h1 {
+    font-size: 48px;
+    font-family: "Inter", sans-serif;
+    margin-left: 50px;
+  }
+
+  .discover-text p {
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+  .discover-text img {
+    display: inline-block;
+    margin-right: 10px;
+    width: 80%; 
+    height: auto;
+  }
+
+  .Ourresources h1 {
+    font-size: 48px;
+    font-family: "Inter", sans-serif;
+    margin-left: 50px;
+  }
+
+  .Ourresources p {
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+  
+  .highlight {
+    color: #F5B100;
+  }
+  .learn {
+    color: #373FFF;
+}
+  .study {
+    color: #FFCF7F;
+}
+.discover-text h1 {
+    font-size: 48px;
+    font-family: "Inter", sans-serif;
+    margin-left: 50px;
+  }
+.learnandstudy h1{
+    font-size: 48px;
+    font-family:"Inter", sans-serif;
+    margin-left: 50px;
+}
+.learnandstudy p {
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+.img {
+    width: 100%;
+    max-width: 500px;
+}
+.primary-btn {
+    margin-top: 35px;
+    background-color: #0412A1;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary-btn1 {
+    margin-top: 35px;
+    background-color: #0412A1;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}.primary-btn2 {
+    margin-top: 35px;
+    background-color: #0412A1;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.div-button{
+   display: flex;
+   gap: 40px;
+}
+.div-button button:first-child {
+ font-family: "Inter", sans-serif;
+ font-weight: 600;
+  }
+  .div-button button:nth-child(2){
+    background-color: #1591FF;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+  .last-buttons button:first-child{
+    margin-top: 35px;
+    margin-left: 50px;
+    width: 215px;
+    background-color: #FFCF7F;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.last-buttons button:nth-child(2){
+    width: 215px;
+    margin-top: 35px;
+    margin-left: 50px;
+    
+    background-color: #407BFF;
+    color: white;
+    padding: 15px 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.last-buttons button:nth-child(3){
+    margin-top: 35px;
+    width: 215px;
+    margin-left: 50px;
+    
+    background-color: #9e92e4;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
