@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSwap | Authentication</title>
+</head>
+<body>
+    <!-- Tab Navigation -->
+    <div>
+        <button id="show-login">Login</button>
+        <button id="show-register">Register</button>
+    </div>
+
+    <!-- Login Panel -->
+    <div id="login-panel">
+        <h2>Login to EduSwap</h2>
+        <form id="login-form">
+            <div>
+                <input type="email" id="login-email" placeholder="Email" required>
+            </div>
+            <div>
+                <input type="password" id="login-password" placeholder="Password" required>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="remember-me"> Remember me
+                </label>
+                <a href="#" id="forgot-password">Forgot password?</a>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="login-error"></div>
+    </div>
+
+    <!-- Registration Flow (initially hidden) -->
+    <div id="registration-flow" style="display: none;">
+        <!-- Page 1: Personal Info -->
+        <div id="page1">
+            <h2>Registration - Step 1 of 3</h2>
+            <form id="form1">
+                <div>
+                    <input type="text" id="fullname" placeholder="Full Name" required>
+                </div>
+                <div>
+                    <select id="wilaya" required>
+                        <option value="" disabled selected>Select your Wilaya</option>
+                        <option value="2">Chlef</option>
+        <option value="3">Laghouat</option>
+        <option value="4">Oum El Bouaghi</option>
+        <option value="5">Batna</option>
+        <option value="6">Béjaïa</option>
+        <option value="7">Biskra</option>
+        <option value="8">Béchar</option>
+        <option value="9">Blida</option>
+        <option value="10">Bouira</option>
+        <option value="11">Tamanrasset</option>
+        <option value="12">Tébessa</option>
+        <option value="13">Tlemcen</option>
+        <option value="14">Tiaret</option>
+        <option value="15">Tizi Ouzou</option>
+        <option value="16">Algiers</option>
+        <option value="17">Djelfa</option>
+        <option value="18">Jijel</option>
+        <option value="19">Sétif</option>
+        <option value="20">Saïda</option>
+        <option value="21">Skikda</option>
+        <option value="22">Sidi Bel Abbès</option>
+        <option value="23">Annaba</option>
+        <option value="24">Guelma</option>
+        <option value="25">Constantine</option>
+        <option value="26">Médéa</option>
+        <option value="27">Mostaganem</option>
+        <option value="28">M'Sila</option>
+        <option value="29">Mascara</option>
+        <option value="30">Ouargla</option>
+        <option value="31">Oran</option>
+        <option value="32">El Bayadh</option>
+        <option value="33">Illizi</option>
+        <option value="34">Bordj Bou Arréridj</option>
+        <option value="35">Boumerdès</option>
+        <option value="36">El Tarf</option>
+        <option value="37">Tindouf</option>
+        <option value="38">Tissemsilt</option>
+        <option value="39">El Oued</option>
+        <option value="40">Khenchela</option>
+        <option value="41">Souk Ahras</option>
+        <option value="42">Tipaza</option>
+        <option value="43">Mila</option>
+        <option value="44">Aïn Defla</option>
+        <option value="45">Naâma</option>
+        <option value="46">Aïn Témouchent</option>
+        <option value="47">Ghardaïa</option>
+        <option value="48">Relizane</option>
+        <option value="49">El M'Ghair</option>
+        <option value="50">El Menia</option>
+        <option value="51">Ouled Djellal</option>
+        <option value="52">Bordj Badji Mokhtar</option>
+        <option value="53">Béni Abbès</option>
+        <option value="54">Timimoun</option>
+        <option value="55">Touggourt</option>
+        <option value="56">Djanet</option>
+        <option value="57">In Salah</option>
+        <option value="58">In Guezzam</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                </div>
+                <button type="button" id="next1">Next</button>
+            </form>
+        </div>
+
+        <!-- Page 2: Skills and Password -->
+        <div id="page2" style="display: none;">
+            <h2>Registration - Step 2 of 3</h2>
+            <form id="form2">
+                <div>
+                    <h3>Write your skills (separate with commas):</h3>
+                    <textarea id="skills-input" rows="4" placeholder="e.g. Python, Graphic Design, Data Analysis" required></textarea>
+                </div>
+                <div>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="button" id="back2">Back</button>
+                <button type="button" id="next2">Next</button>
+            </form>
+        </div>
+
+        <!-- Page 3: Social Links -->
+        <div id="page3" style="display: none;">
+            <h2>Registration - Step 3 of 3</h2>
+            <form id="form3">
+                <div>
+                    <input type="url" id="linkedin" placeholder="LinkedIn URL (optional)">
+                </div>
+                <div>
+                    <input type="url" id="github" placeholder="GitHub URL (optional)">
+                </div>
+                <div>
+                    <input type="url" id="portfolio" placeholder="Portfolio URL (optional)">
+                </div>
+                <button type="button" id="back3">Back</button>
+                <button type="submit" id="submit">Complete Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Message (hidden initially) -->
+    <div id="success" style="display: none;">
+        <h2>Registration Complete!</h2>
+        <p>Welcome to EduSwap. Your account has been successfully created.</p>
+        <button id="continue">Continue to Dashboard</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase Initialization
+        const firebaseConfig = {
+            apiKey: "AIzaSyAS8z9R1np8vcoIXGyEHQDPgpdSNlJyOPw",
+            authDomain: "eduswap-142dc.firebaseapp.com",
+            projectId: "eduswap-142dc",
+            storageBucket: "eduswap-142dc.appspot.com",
+            messagingSenderId: "875282442068",
+            appId: "1:875282442068:web:b683363bf790dca4414ac1"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Tab Navigation
+        document.getElementById('show-login').addEventListener('click', () => {
+            document.getElementById('login-panel').style.display = 'block';
+            document.getElementById('registration-flow').style.display = 'none';
+            document.getElementById('success').style.display = 'none';
+        });
+
+        document.getElementById('show-register').addEventListener('click', () => {
+            document.getElementById('login-panel').style.display = 'none';
+            document.getElementById('registration-flow').style.display = 'block';
+            document.getElementById('success').style.display = 'none';
+            // Reset registration flow to page 1
+            document.getElementById('page1').style.display = 'block';
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'none';
+        });
+
+        // Login Functionality
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const errorElement = document.getElementById('login-error');
+
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                errorElement.textContent = error.message;
+            }
+        });
+
+        // Registration Flow Navigation
+        document.getElementById('next1').addEventListener('click', () => {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        document.getElementById('back2').addEventListener('click', () => {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page1').style.display = 'block';
+        });
+
+        document.getElementById('next2').addEventListener('click', () => {
+            const skillsText = document.getElementById('skills-input').value.trim();
+            if (!skillsText) {
+                alert("Please enter at least one skill");
+                return;
+            }
+            if (document.getElementById('password').value !== document.getElementById('confirm-password').value) {
+                alert("Passwords don't match!");
+                return;
+            }
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'block';
+        });
+
+        document.getElementById('back3').addEventListener('click', () => {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+        });
+
+        // Registration Submission
+        document.getElementById('form3').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                // Process skills
+                const skillsText = document.getElementById('skills-input').value;
+                const skillsArray = skillsText.split(',')
+                    .map(skill => skill.trim())
+                    .filter(skill => skill.length > 0);
+
+                // Prepare user data
+                const userData = {
+                    fullName: document.getElementById('fullname').value,
+                    wilaya: document.getElementById('wilaya').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    skills: skillsArray,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                };
+
+                // Add optional social links
+                ['linkedin', 'github', 'portfolio'].forEach(field => {
+                    const value = document.getElementById(field).value;
+                    if (value) userData[field] = value;
+                });
+
+                // Create user
+                const userCredential = await auth.createUserWithEmailAndPassword(
+                    userData.email,
+                    document.getElementById('password').value
+                );
+
+                // Save to Firestore
+                await db.collection('users').doc(userCredential.user.uid).set(userData);
+
+                // Show success
+                document.getElementById('registration-flow').style.display = 'none';
+                document.getElementById('success').style.display = 'block';
+            } catch (error) {
+                alert("Registration failed: " + error.message);
+            }
+        });
+
+        // Continue to dashboard
+        document.getElementById('continue').addEventListener('click', () => {
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>

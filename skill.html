@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSwap | My Skills</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+        header {
+            background-color: #2563eb;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .skill-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .skill-list {
+            min-height: 200px;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .nothing-btn {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .logout-btn {
+            background: white;
+            color: #2563eb;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .skill-panels {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EduSwap Skills</h1>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <main>
+        <div class="skill-panels">
+            <!-- Teaching Skills Panel -->
+            <div class="skill-card">
+                <h2>Skills I Can Teach</h2>
+                <div class="skill-list" id="teach-list">
+                    <p class="empty-state">No teaching skills added yet</p>
+                </div>
+                <form id="add-teach-form" class="skill-form">
+                    <input type="text" id="new-teach-skill" placeholder="e.g. JavaScript" required>
+                    <select id="teach-level" required>
+                        <option value="" disabled selected>Select level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                    <button type="submit">Add Skill</button>
+                </form>
+                <button id="clear-teach" class="nothing-btn">Clear All Teaching Skills</button>
+            </div>
+
+            <!-- Learning Skills Panel -->
+            <div class="skill-card">
+                <h2>Skills I Want to Learn</h2>
+                <div class="skill-list" id="learn-list">
+                    <p class="empty-state">No learning skills added yet</p>
+                </div>
+                <form id="add-learn-form" class="skill-form">
+                    <input type="text" id="new-learn-skill" placeholder="e.g. Graphic Design" required>
+                    <button type="submit">Add Skill</button>
+                </form>
+                <button id="clear-learn" class="nothing-btn">Clear All Learning Skills</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase Initialization
+        const firebaseConfig = {
+            apiKey: "AIzaSyAS8z9R1np8vcoIXGyEHQDPgpdSNlJyOPw",
+            authDomain: "eduswap-142dc.firebaseapp.com",
+            projectId: "eduswap-142dc",
+            storageBucket: "eduswap-142dc.appspot.com",
+            messagingSenderId: "875282442068",
+            appId: "1:875282442068:web:b683363bf790dca4414ac1"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Authentication Check
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = 'index.html';
+            } else {
+                loadUserSkills(user.uid);
+            }
+        });
+
+        // Load User Skills
+        function loadUserSkills(userId) {
+            db.collection('users').doc(userId).get()
+                .then(doc => {
+                    if (doc.exists) {
+                        const data = doc.data();
+                        renderSkills('teach-list', data.skillsToTeach || []);
+                        renderSkills('learn-list', data.skillsToLearn || []);
+                    }
+                });
+        }
+
+        // Render Skills to UI
+        function renderSkills(listId, skills) {
+            const listElement = document.getElementById(listId);
+            listElement.innerHTML = '';
+
+            if (skills.length === 0) {
+                listElement.innerHTML = '<p class="empty-state">No skills added yet</p>';
+                return;
+            }
+
+            skills.forEach(skill => {
+                const skillItem = document.createElement('div');
+                skillItem.className = 'skill-item';
+                skillItem.textContent = typeof skill === 'object' 
+                    ? `${skill.skill} (${skill.level})` 
+                    : skill;
+                listElement.appendChild(skillItem);
+            });
+        }
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            auth.signOut();
+        });
+
+        // Add Teaching Skill
+        document.getElementById('add-teach-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userId = auth.currentUser?.uid;
+            if (!userId) return;
+
+            const skill = document.getElementById('new-teach-skill').value;
+            const level = document.getElementById('teach-level').value;
+
+            await db.collection('users').doc(userId).update({
+                skillsToTeach: firebase.firestore.FieldValue.arrayUnion({
+                    skill,
+                    level
+                })
+            });
+            e.target.reset();
+            loadUserSkills(userId);
+        });
+
+        // Add Learning Skill
+        document.getElementById('add-learn-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userId = auth.currentUser?.uid;
+            if (!userId) return;
+
+            const skill = document.getElementById('new-learn-skill').value;
+
+            await db.collection('users').doc(userId).update({
+                skillsToLearn: firebase.firestore.FieldValue.arrayUnion(skill)
+            });
+            e.target.reset();
+            loadUserSkills(userId);
+        });
+
+        // Clear Skills
+        document.getElementById('clear-teach').addEventListener('click', async () => {
+            if (confirm('Clear all teaching skills?')) {
+                const userId = auth.currentUser?.uid;
+                await db.collection('users').doc(userId).update({
+                    skillsToTeach: []
+                });
+                loadUserSkills(userId);
+            }
+        });
+
+        document.getElementById('clear-learn').addEventListener('click', async () => {
+            if (confirm('Clear all learning skills?')) {
+                const userId = auth.currentUser?.uid;
+                await db.collection('users').doc(userId).update({
+                    skillsToLearn: []
+                });
+                loadUserSkills(userId);
+            }
+        });
+        
+    </script>
+</body>
+</html>
