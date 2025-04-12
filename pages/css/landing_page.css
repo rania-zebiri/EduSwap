@@ -1,4 +1,7 @@
-
+html {
+    scroll-behavior: smooth;
+  }
+  
 .navbar {
     width: 90%;
     max-width: 1200px;
@@ -46,17 +49,17 @@
 
   section {
     margin: 0px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 100px;
+    padding: 100px 100px;
     gap: 10px;
   }
-  
-  .hero, .discover, .resources {
-    border-bottom: 1px solid #eee;
+  section + section {
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
-  
   .hero-text h1 {
     font-size: 48px;
     font-family: "Inter", sans-serif;
@@ -207,7 +210,6 @@
     margin-top: 35px;
     width: 215px;
     margin-left: 50px;
-    
     background-color: #9e92e4;
     color: white;
     padding: 15px 30px;

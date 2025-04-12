@@ -12,9 +12,9 @@
 </head>
 <body>
     <header>
-        <a href="/previous-page" class="back-icon">
+        <a href="/pages/html/Landing_page.html" class="back-icon">
             <img src="/assets/back-button.png" alt="Back">
-          </a>
+        </a>
         <img src="/assets/logo.png" alt="Logo" class="logo"> 
     </header>
     <main>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="Country">
                     <label for="country">Country:</label>
-                    <select id="country" name="country" required>
+                    <select id="country" name="country" >
                       <option value="">--Select Country--</option>
                       <option value="AF">Afghanistan</option>
                       <option value="AL">Albania</option>
@@ -241,11 +241,12 @@
 
                 <div class="phone_input">
                     <label for="Phone">Phone number</label>
-                    <input type="text" id="Phone" name="phone"  placeholder="Enter here" required>
+                    <input type="text" id="Phone" name="phone"  placeholder="Enter here" >
                 </div>
-                <div class="button_next">
-                    <button>Next</button>
-                </div>
+                    <div class="button_next">
+                        <button type="button" onclick="window.location.href='/pages/html/registration_page2.html'">Next</button>
+                    </div>
+               
             </div>
           </div>
     </form>
