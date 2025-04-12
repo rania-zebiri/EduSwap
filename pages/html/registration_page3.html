@@ -18,7 +18,7 @@
         <img src="/assets/logo.png" alt="Logo" class="logo"> 
     </header>
     <main>
-        <form action="/registration" method="post">
+        <form id="register" action="/registration" method="post">
         <div class="box-register">
             <div class="content">
                 <div class="Registering">
@@ -44,5 +44,15 @@
           </div>
     </form>
     </main>
+    <script>
+        document.getElementById('register').addEventListener('submit', function(event) {
+          event.preventDefault(); 
+          alert("Registration successful!");
+      
+         setTimeout(() => {
+            window.location.href = "/pages/html/Landing_page.html";
+          }, 1000);         });
+      </script>
+      
 </body>
 </html>

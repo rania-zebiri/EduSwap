@@ -18,7 +18,7 @@
         <img src="/assets/logo.png" alt="Logo" class="logo"> 
     </header>
     <main>
-        <form action="/login" method="post">
+        <form  onsubmit="event.preventDefault(); window.location.href='/pages/html/Landing_page_after_login.html';" action="/login" method="post">
         <div class="box-login">
             <div class="content">
                 <div class="welcome-back">
@@ -40,11 +40,11 @@
                     </div>
                 </div>
                 <div class="button_login">
-                    <button>Login</button>
+                    <button type="submit">Login</button>
                 </div>
                 <div class="sign_up"> 
                     <p>Don't have an account ?</p>
-                    <a href="/SignUp">Sign Up</a>
+                    <a href="/pages/html/registration_page1.html">Sign Up</a>
                 </div>
             </div>
           </div>
