@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/assets/icon_page.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/css/style.css">
+    <title>EduSwap</title>
+</head>
+<body>
+    <header>
+        <a href="/previous-page" class="back-icon">
+            <img src="/assets/back-button.png" alt="Back">
+          </a>
+        <img src="/assets/logo.png" alt="Logo" class="logo"> 
+    </header>
+    <main>
+        <form action="/login" method="post">
+        <div class="box-login">
+            <div class="content">
+                <div class="welcome-back">
+                    <p>Welcome Back</p>
+                </div>
+                <div class="Email_input">
+                    <label for="Email">Email</label>
+                    <input type="email" id="Email" name="Email"  placeholder="Enter here" required>
+                </div>
+                <div class="Password_input">
+                    <label for="Password">Password</label>
+                    <input type="password" id="Password" name="Password" placeholder="**************"  required>
+                </div>
+                <div class="remember_check">
+                    <input type="checkbox" id="remember me" name="remember me">
+                    <label for="remember me">remember me</label>
+                    <div class="forget_pass">
+                        <a href="/forget_pass">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="button_login">
+                    <button>Login</button>
+                </div>
+                <div class="sign_up"> 
+                    <p>Don't have an account ?</p>
+                    <a href="/SignUp">Sign Up</a>
+                </div>
+            </div>
+          </div>
+    </form>
+    </main>
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
