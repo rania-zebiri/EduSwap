@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .back-icon img {
+    width: 30px;  
+    height: auto;
+    position: absolute;
+    top: 60px;  
+    left: 60px; 
+  }
+.container {
+background-color: white;
+padding: 40px;
+max-width: 1200px;
+margin: 40px auto;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 40px;
+}
+.left-section {
+flex: 1 1 100%;
+}
+.left-section h1{
+   margin-top: 180px;
+   font-family: "Inter", sans-serif;
+    }
+ .left-section p{
+    margin-top: 20px;
+    font-family: "Inter", sans-serif;
+         }
+.right-section {
+    margin-top: 180px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 20px;
+flex: 1 1 100%;
+}
+
+p {
+font-size: 16px;
+line-height: 1.6;
+}
+.room-card {
+padding: 40px;
+color: white;
+text-align: center;
+font-size: 18px;
+border-radius: 8px;
+cursor: pointer;
+}
+.study-chilling {
+    background-color: #4e7eff;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    
+  }
+.hardworking { background-color: #00069e;font-family: "Inter", sans-serif;
+    font-weight: 600; 
+}
+.math { background-color: #482eff;font-family: "Inter", sans-serif;
+    font-weight: 600; }
+.reading { background-color: #f4c166; color: white;font-family: "Inter", sans-serif;
+    font-weight: 600; }
+    a {
+        color: #4D2EFF;
+        font-weight: bold;
+        text-decoration: none;
+      }
+@media (min-width: 768px) {
+.left-section {
+  flex: 1;
+}
+.right-section {
+  flex: 1;
+}
+}
